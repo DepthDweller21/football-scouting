@@ -1,0 +1,2 @@
+id,full_name,email,password,role
+1,Test User,test@example.com,secret,scout

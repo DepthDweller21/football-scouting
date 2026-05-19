@@ -1,0 +1,147 @@
+:root {
+  --bg: #0c1220;
+  --bg-elevated: #141c2e;
+  --bg-panel: #1a2438;
+  --bg-input: #0f1628;
+  --border: #2a3650;
+  --border-focus: #3d8f5a;
+  --text: #e8edf7;
+  --muted: #94a3b8;
+  --accent: #22c55e;
+  --accent-dim: #15803d;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --radius: 10px;
+  --radius-sm: 8px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --shadow-focus: 0 0 0 3px rgba(34, 197, 94, 0.22);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1a3a2a 0%, var(--bg) 55%);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Shared field styling — applies everywhere (forms, filters, sim controls, lineup). */
+input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']),
+select,
+textarea {
+  font: inherit;
+  color: var(--text);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  min-height: 2.35rem;
+  line-height: 1.35;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+input:hover:not(:disabled):not(:read-only),
+select:hover:not(:disabled),
+textarea:hover:not(:disabled):not(:read-only) {
+  border-color: #3d4f6f;
+  background-color: #121a2c;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+  background-color: #121a2c;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+input:read-only {
+  opacity: 0.85;
+  cursor: default;
+}
+
+select {
+  appearance: none;
+  padding-right: 2.35rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 0.75rem;
+}
+
+select option {
+  background-color: var(--bg-panel);
+  color: var(--text);
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0.45;
+}
+
+input[type='date'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+input[type='text'] {
+  width: 100%;
+}
+
+a {
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.empty {
+  color: var(--muted);
+  font-style: italic;
+  padding: 1rem 0;
+}
